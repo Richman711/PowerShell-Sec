@@ -53,7 +53,6 @@ This example exports the FW log as a simple .csv
         }
         $fwLog = @()
 
-        
         $count = -1
         $type = 0 # 1 = Traffic, 2 = IPS
 
@@ -96,9 +95,6 @@ This example exports the FW log as a simple .csv
                     return $newEntry
         }
 
-
-
-
         Do{
             #Turning on the Proggress Bar can increase the time by about 4X
             <#Write-Progress -Activity "Building Logs" -status "Currently on line $line"`
@@ -119,18 +115,13 @@ This example exports the FW log as a simple .csv
             else{
                 $line ++
             }
-
-
-            
         }while ($line -lt $content.count) 
-        Write-Verbose $loopCount
-        
         
         Write-Verbose "Finished!"
         Write-Verbose ""
         $number = $fwLog.Count
         Write-Verbose "FWLog containd $number log entries"
-       
+        
         #$fwLog | Out-GridView
         
         return $fwLog
